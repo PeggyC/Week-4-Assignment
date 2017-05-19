@@ -1,21 +1,53 @@
-COOKBOOK: assignment for week4
+COOKBOOK: modified version of features_info.txt
+This cookbook contains all information regarding the dataset tidy_data.txt.
 
-Variables containing uploaded files:
-train_data: "UCI HAR Dataset/train/X_train.txt"
-test_data: "UCI HAR Dataset/test/X_test.txt"
-features: "UCI HAR Dataset/features.txt"
-activities: "UCI HAR Dataset/activity_labels.txt"
-train_activities: "UCI HAR Dataset/train/y_train.txt"
-test_activities: "UCI HAR Dataset/test/y_test.txt"
-train_subjects: "UCI HAR Dataset/train/subject_train.txt"
-test_subjects: "UCI HAR Dataset/test/subject_test.txt"
 
-Variables:
-ind: indices containing all variables of features with "mean" and "std"
+1. CONTEXT:
 
-Data frame:
-merged_data: merged data from train_data and test_data
-new_df: subset of merged_data based on variables with "mean" and "std"
-merged_activities: merged data from train_activities and test_activities
-tidy_df: final data frame containing the average of each variable for each activity and each subject.
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+2. VARIABLES:
+
+These signals were used to estimate variables of the feature vector for each pattern: 
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+tBodyAcc-XYZ
+tGravityAcc-XYZ
+tBodyAccJerk-XYZ
+tBodyGyro-XYZ
+tBodyGyroJerk-XYZ
+tBodyAccMag
+tGravityAccMag
+tBodyAccJerkMag
+tBodyGyroMag
+tBodyGyroJerkMag
+fBodyAcc-XYZ
+fBodyAccJerk-XYZ
+fBodyGyro-XYZ
+fBodyAccMag
+fBodyAccJerkMag
+fBodyGyroMag
+fBodyGyroJerkMag
+
+The set of variables that were estimated from these signals are: 
+
+mean: Mean value
+std : Standard deviation
+
+Additional vectors obtained by averaging the signals in a signal window sample. These are used on the angle() variable:
+
+gravityMean
+tBodyAccMean
+tBodyAccJerkMean
+tBodyGyroMean
+tBodyGyroJerkMean
+
+Two variables were added to the original set of variables: the subjects and the activities. The number of total variables is 68.
+
+3. FINAL DATASET: tidy_data.txt
+
+This dataset contains the means of the 66 variables based on activity and subject.
